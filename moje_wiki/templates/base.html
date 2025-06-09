@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+
+<!-- SimpleMDE (Markdown editor) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Moje Wiki</title>
+</head>
+<body>
+    <h1><a href="{{ url_for('index') }}">Moje Wiki</a></h1>
+    {% block content %}{% endblock %}
+</body>
+</html>

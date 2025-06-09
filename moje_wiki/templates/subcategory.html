@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Encyklopedie – {{ subcategory }}</h2>
+
+    {% if subcategory == "Fauna" %}
+        <h3>Skupiny Fauny:</h3>
+        <ul>
+            <li><a href="{{ url_for('fauna_group', group='Savci') }}">Savci</a></li>
+            <li><a href="{{ url_for('fauna_group', group='Plazi') }}">Plazi</a></li>
+            <li><a href="{{ url_for('fauna_group', group='Draci') }}">Draci</a></li>
+            <li><a href="{{ url_for('fauna_group', group='Silica') }}">Silica</a></li>
+        </ul>
+    {% else %}
+        <ul>
+            {% for article in articles %}
+                <li><a href="{{ url_for('article', id=article['id']) }}">{{ article['title'] }}</a></li>
+            {% else %}
+                <li>V této podkategorii zatím nejsou žádné články.</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="{{ url_for('category', name='Encyklopedie') }}">Zpět na výběr podkategorií</a>
+{% endblock %}

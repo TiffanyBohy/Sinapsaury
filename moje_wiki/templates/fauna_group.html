@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Encyklopedie – Fauna – {{ group }}</h2>
+
+    <ul>
+        {% for article in articles %}
+            <li><a href="{{ url_for('article', id=article['id']) }}">{{ article['title'] }}</a></li>
+        {% else %}
+            <li>V této skupině zatím nejsou žádné články.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('category', name='Encyklopedie') }}">Zpět na Encyklopedii</a>
+{% endblock %}

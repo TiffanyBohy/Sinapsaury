@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Upravit článek</h2>
+    <form method="post">
+        <label for="title">Název:</label><br>
+        <input type="text" id="title" name="title" value="{{ article['title'] }}"><br><br>
+
+        <label for="content">Obsah:</label><br>
+        <textarea id="content" name="content" rows="10" cols="50">{{ article['content'] }}</textarea><br><br>
+
+        <button type="submit">Uložit změny</button>
+
+        <script>
+    var simplemde = new SimpleMDE({ element: document.getElementById("content") });
+        </script>
+
+
+    </form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>Poslední články</h2>
+<ul>
+    {% for article in latest %}
+        <li><a href="{{ url_for('article', id=article['id']) }}">{{ article['title'] }}</a></li>
+    {% else %}
+        <li>Žádné články zatím nebyly vytvořeny.</li>
+    {% endfor %}
+</ul>
+
+
+    <h2>Kategorie</h2>
+    <ul>
+         <li><a href="{{ url_for('category', name='Encyklopedie') }}">Encyklopedie</a></li>
+         <li><a href="{{ url_for('category', name='Příběh') }}">Příběh</a></li>
+         <li><a href="{{ url_for('category', name='Novinky') }}">Novinky</a></li>
+    </ul>
+
+
+    <h2>Seznam článků</h2>
+
+    <form method="get" action="{{ url_for('index') }}">
+        <input type="text" name="q" placeholder="Hledat..." value="{{ request.args.get('q', '') }}">
+        <button type="submit">Hledat</button>
+    </form>
+
+    <a href="{{ url_for('create') }}">+ Nový článek</a>
+
+    <ul>
+        {% for article in articles %}
+            <li><a href="{{ url_for('article', id=article['id']) }}">{{ article['title'] }}</a></li>
+        {% else %}
+            <li>Žádné články nebyly nalezeny.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

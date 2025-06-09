@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ article['title'] }}</h2>
+    <div>{{ content | markdown | safe }}</div>
+
+    <a href="{{ url_for('edit', id=article['id']) }}">Upravit</a><br>
+
+   <form action="{{ url_for('delete', id=article['id']) }}" method="post" onsubmit="return confirm('Opravdu chceš smazat tento článek?');">
+    <button type="submit">Smazat</button>
+</form>
+
+
+    <a href="{{ url_for('index') }}">Zpět na seznam</a>
+
+{% endblock %}

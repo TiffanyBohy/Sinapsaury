@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Nový článek</h2>
+    <form method="post">
+        <label for="title">Název:</label><br>
+        <input type="text" id="title" name="title"><br><br>
+
+        <label for="category">Kategorie:</label><br>
+        <select id="category" name="category">
+            <option value="Encyklopedie">Encyklopedie</option>
+            <option value="Příběh">Příběh Naratio</option>
+            <option value="Novinky">Novinky</option>
+        </select><br><br>
+
+        <label for="subcategory">Podkategorie (pouze pro Encyklopedii):</label><br>
+<select id="subcategory" name="subcategory">
+    <option value="">– žádná –</option>
+    <option value="Fauna">Fauna</option>
+    <option value="Flora">Flora</option>
+    <option value="Technologie">Technologie</option>
+    <option value="Kodex">Kodex</option>
+</select><br><br>
+
+<label for="grouping">Skupina (pouze pokud je podkategorie „Fauna“):</label><br>
+<select id="grouping" name="grouping">
+    <option value="">– žádná –</option>
+    <option value="Savci">Savci</option>
+    <option value="Plazi">Plazi</option>
+    <option value="Draci">Draci</option>
+    <option value="Silica">Silica</option>
+</select><br><br>
+
+
+
+        <label for="content">Obsah:</label><br>
+        <textarea id="content" name="content" rows="10" cols="50"></textarea><br><br>
+
+        <textarea id="content" name="content"></textarea>
+
+<script>
+    var simplemde = new SimpleMDE({ element: document.getElementById("content") });
+</script>
+
+        <button type="submit">Uložit</button>
+    </form>
+{% endblock %}
